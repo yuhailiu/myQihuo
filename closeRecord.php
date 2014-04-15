@@ -20,7 +20,7 @@ while ( $trade_code = mysql_fetch_array ( $result ) ) {
 	$quatity = mysql_fetch_row ( $result_quatity );
 	if ($quatity [0] == 0) {
 		// update the record to close
-		$sql = "UPDATE trade_record set isClose = '1' where trade_code = '$trade_code[trade_code]'";
+		$sql = "UPDATE trade_record set isClose = '1' where trade_code = '$trade_code[trade_code]' and isClose = '0'";
 		try {
 			mysql_query ( $sql, $con );
 		} catch (Exception $e) {
