@@ -27,12 +27,14 @@ while ( $trade_code = mysql_fetch_array ( $result ) ) {
 		$cost_name [$i] [name] = $trade_code [name];
 		$cost_name [$i][quatity] = $quatity[0];
 		$cost_name [$i][trade_code] = $trade_code[trade_code];
-		if ($sum [0] > 0) {
+		$quatity[0] = abs($quatity[0]);
+		$cost_name [$i] [cost] = round($sum [0] / $quatity [0], 2);
+// 		if ($sum [0] > 0) {
 			
-			$cost_name [$i] [cost] = $sum [0] / $quatity [0];
-		} elseif ($sum [0] < 0) {
-			$cost_name [$i] [cost] = - $sum [0] / $quatity [0];
-		}
+// 			$cost_name [$i] [cost] = $sum [0] / $quatity [0];
+// 		} elseif ($sum [0] < 0) {
+// 			$cost_name [$i] [cost] = - $sum [0] / $quatity [0];
+// 		}
 		$i++;
 	}
 }

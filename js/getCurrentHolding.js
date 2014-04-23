@@ -25,17 +25,21 @@ $(function() {
 	    var cost = $("#"+ i + 3).text();
 	    var quatity = $("#"+ i + 4).text();
 	    var price = $("#"+ i + 5).val();
-	    if(!price){
-		continue;
-	    }
-	    if(quatity > 0){
-		var win_lost = (price - cost)*quatity;
-	    } else {
-		var win_lost = -(-cost - price)*quatity;
-	    }
-	    $("#"+ i + 6 ).text(win_lost*localStorage.getItem(code));
-	    summary = summary + win_lost*localStorage.getItem(code);
+	    //if no input price, skip the loop
+	    if(!price) continue;
+	    
+	    //calculate the win&lost and fixed the digital number to 2
+	    cost = Math.abs(cost);
+	    var win_lost = (price - cost)*quatity*localStorage.getItem(code);
+	    
+	    //put it to web
+	    $("#"+ i + 6 ).text(win_lost.toFixed(2));
+	    
+	    //calculate the summary
+	    summary = summary + win_lost;
 	}
+	//put summary to web
+	summary = summary.toFixed(2);
 	$("#summary").text(summary);
     });
     

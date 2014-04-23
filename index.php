@@ -42,6 +42,7 @@ while ($trade_code = mysql_fetch_array($result)) {
 	<br>
 	<a href="getCurrentHolding.php">check the cost</a><br>
 	<a href="getAllRecord.php">check all record</a><br>
+	<a href="getCloseProfit.php">check profit of close deal</a><br>
 </body>
 </html>
 
