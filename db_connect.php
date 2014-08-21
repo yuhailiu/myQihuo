@@ -1,6 +1,6 @@
 <?php
 //connect the server
-$con = mysql_connect ( "localhost", "root", "root" );
+$con = mysql_connect ( "localhost", "root", "lyh1023nm" );
 if (! $con) {
 	die ( 'Could not connect: ' . mysql_error () );
 }
